@@ -1,18 +1,27 @@
+body{
+    background-color: #edf4fa;
+    margin: 0px;
+    font-family: candara;
+    color: #282828;
+}
 div{
     margin: auto;
     text-align: center;
-    border: 3px solid green; /*es treurà , es per veure les divisions*/
+    /*border: 3px solid green; es treurà , es per veure les divisions*/
 }
 .btn-section{
   margin: auto;
   width: 70%;
-  border: 3px solid green; /*es treurà , es per veure les divisions*/
+ /* border: 3px solid green; es treurà , es per veure les divisions*/
   padding: 10px;
+  
 }
 .btn-section button {
     background-color: #4c82af; /* Green background */
     border: 1px solid rgb(0, 77, 128); /* Green border */
     color: white; /* White text */
+    font-family: candara;
+    font-size: 20px;
     padding: 10px 24px; /* Some padding */
     cursor: pointer; /* Pointer/hand icon */
     
@@ -23,13 +32,10 @@ div{
     border-radius: 25px;
 }
   
-.btn-section button:not(:last-child) {
-    border-bottom: none; /* Prevent double borders */
-}
-  
+
  /* Add a background color on hover */
 .btn-section button:hover {
- background-color: #5c67c5;
+    background-color: #4c82afc0;
 }
 
 h1 {
