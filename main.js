@@ -1,9 +1,8 @@
-
-const app = Vue.createApp({
+const index = Vue.createApp({
 	data: function(){
 		return{
 			title: 'Game Title',
-			sections: ['Quiz','Tips', 'Game']
+			sections: ['Quiz', 'Game']
 		}
 	},
 	methods:{

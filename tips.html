@@ -11,13 +11,26 @@
 	<body>
 		<div id="tips">
 			<h1> Tips </h1>
-			
+			<ol>
+				<li class="tips_list" v-for="tip in tips">
+					{{ tip.text }} 
+					<div class="img-section">
+						<div class="column_tips">
+							<img :src="tip.example" >
+						</div>
+					</div>
+				</li>
+			</ol>
+			<h2> Great! Let's play!</h2>
+			<div class="btn-section">
+				<button v-on:click="changePage()">{{ section }}</button>
+			</div>
 		</div>
 		
 		<!-- Import App -->
-		<script src="./main.js"></script>
+		<script src="./components/Tips.js"></script>
 
 		<!-- Mount App -->
-		<script> const mountedApp = app.mount('#app') </script>
+		<script> const mountedApp = tips.mount('#tips') </script>
 	</body>
 </html>

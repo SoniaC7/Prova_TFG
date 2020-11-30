@@ -4,15 +4,56 @@ body{
     font-family: candara;
     color: #282828;
 }
+*{
+    box-sizing: border-box;
+}
+input[type="image"]{
+    width: 216px; 
+    height: 286px;
+}
+.img-section{
+    /*border: 3px solid rgb(128, 109, 0);*/
+}
+.column{
+    float: left;
+    width: 50%;
+    padding: 5px;
+    /*border: 3px solid blue;*/
+}
+
+.img-section::after{
+    content: "";
+    clear: both;
+    display: table;
+    
+}
+
+.column_tips{
+    float: left;
+    width: 100%;
+    padding: 5px;
+    /*border: 3px solid blue;*/
+}
 div{
     margin: auto;
     text-align: center;
     /*border: 3px solid green; es treurà , es per veure les divisions*/
 }
+ol{
+    list-style-position: inside
+}
+li.question_list{
+    line-height: 2;
+}
+li.tips_list{
+    line-height: 3;
+    font-size: 18px;
+}
+
 .btn-section{
   margin: auto;
   width: 70%;
- /* border: 3px solid green; es treurà , es per veure les divisions*/
+  /*border: 3px solid rgb(128, 0, 90); es treurà , es per veure les divisions*/
   padding: 10px;
   
 }
@@ -40,5 +81,6 @@ div{
 
 h1 {
     font-size: 50px;
+    text-align: center;
 }
 

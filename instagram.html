@@ -9,15 +9,15 @@
 		<script src="https://unpkg.com/vue@next"></script>
 	</head>
 	<body>
-		<div id="game">
+		<div id="media">
 			<h1> Instagram </h1>
-			
+			<media-photos> </media-photos>
 		</div>
 		
 		<!-- Import App -->
-		<script src="./main.js"></script>
-
+		<script src="./components/GameOptions.js"></script>
+		<script src="./components/MediaPhotos.js"></script>
 		<!-- Mount App -->
-		<script> const mountedApp = app.mount('#app') </script>
+		<script> const mountedApp = game.mount('#media') </script>
 	</body>
 </html>
