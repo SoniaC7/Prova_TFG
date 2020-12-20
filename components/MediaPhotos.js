@@ -1,26 +1,33 @@
-game.component('media-photos',{
-    template:
-    /*html*/
-    `<div class="img-section">
-        <div class="column">
-            <input id="imageId" type="image" src="./assets/images/woman_3.jpg"  v-on:click="mark(this)"/>
-        </div>
-        <div class="column">
-            <input id="imageId" type="image" src="./assets/images/woman_2.jpg"  v-on:click="mark(this)"/>
-        </div>
-        <!--<div class="column">
-            <input id="imageId" type="image" src="./assets/images/woman_2.jpg" width="216" height="286" v-on:click="mark(this)"/>
-        </div>-->
-        <!--<button v-for="option in options" v-on:click="changePage(option)">{{ option }}</button>-->
-    </div>`,
+const easy = Vue.createApp({
     data(){
         return {
-           /* options: ['Real vs Instagram', 'Fake photos']*/
+           index: 1,
+           fol_name: '',
+           score: 0
         }
     },
     methods:{
+        log(message){
+            console.log(message);
+        },
+        increment_score(){
+            this.score = this.score + 1;
+        },
         mark(el) {
             el.style.border = "1px solid green";
+        },
+        getImageMedia(index){
+            in_string = this.index.toString();
+            this.fol_name = './assets/images/media/easy/'+ in_string + '/media.png';
+            return this.fol_name;
+        },
+        getImageReal(index){
+            in_string = this.index.toString();
+            this.fol_name = './assets/images/media/easy/'+ in_string + '/real.png';
+            return this.fol_name;
+        },
+        next(){
+            this.index = this.index + 1;
         }
     }
 })

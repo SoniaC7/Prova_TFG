@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Prova TFG</title>
+		<!-- Import Styles -->
+		<link rel="stylesheet" href="./assets/styles.css" />
+		<script src="https://unpkg.com/vue@next"></script>
+	</head>
+	<body>
+		<div id="media">
+			<h1> Easy </h1>
+			<h2> Select those ones you think are posted on social media</h2>
+			
+			<div class="img-section">
+				<div class="column">
+					<input id="mediaId" type="image" :src="getImageMedia(index)"  v-on:click="mark(this)" v-on:click="increment_score()"/>
+				</div>
+				<!--{{ log(index) }}-->
+				<div class="column">
+					<input id="realId" type="image" :src="getImageReal(index)"  v-on:click="mark(this)"/>
+				</div>
+				<!--<div class="column">
+					<input id="imageId" type="image" src="./assets/images/woman_2.jpg" width="216" height="286" v-on:click="mark(this)"/>
+				</div>-->
+				<!--<button v-for="option in options" v-on:click="changePage(option)">{{ option }}</button>-->
+			</div>
+
+			<div class="btn-section">
+				<button v-on:click="next()"> Next </button>
+			</div>
+			
+			
+			{{ log(score) }}
+			
+		</div>
+		
+		<!-- Import App -->
+		<script src="./components/MediaPhotos.js"></script>
+		<!-- Mount App -->
+		<script> const mountedApp = easy.mount('#media') </script>
+	</body>
+</html>

@@ -11,9 +11,9 @@ input[type="image"]{
     width: 216px; 
     height: 286px;
 }
-.img-section{
-    /*border: 3px solid rgb(128, 109, 0);*/
-}
+/*.img-section{
+    border: 3px solid rgb(128, 109, 0);
+}*/
 .column{
     float: left;
     width: 50%;
