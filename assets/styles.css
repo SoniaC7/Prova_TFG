@@ -72,7 +72,7 @@ li.tips_list{
     display: block; /* Make the buttons appear below each other */
     border-radius: 25px;
 }
-  
+
 
  /* Add a background color on hover */
 .btn-section button:hover {
