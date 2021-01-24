@@ -4,41 +4,67 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Prova TFG</title>
+		
 		<!-- Import Styles -->
 		<link rel="stylesheet" href="./assets/styles.css" />
 		<script src="https://unpkg.com/vue@next"></script>
+		<script type="text/javascript" src="./components/GameOptions.js"></script>
+		
 	</head>
 	<body>
 		<div id="media">
 			<h1> Easy </h1>
-			<h2> Select those ones you think are posted on social media</h2>
-			
-			<div class="img-section">
-				<div class="column">
-					<input id="mediaId" type="image" src="./assets/images/media/easy/1/media.png"   v-on:click="increment_score()"/>
+			<div v-show="this.finish_level === false">
+				<h2> Select the ones you think are posted on social media</h2>
+				<div class="img-section">
+					<div class="column">
+						<input id="mediaId" type="image" src="./assets/images/media/easy/1/media.png"   v-on:click="increment_score_win(this.index)"/>
+					</div>
+					<!--{{ log(index) }}-->
+					<div class="column">
+						<input id="realId" type="image" src="./assets/images/media/easy/1/real.png"  v-on:click="increment_score_lose(this.index)"/>
+					</div>
+					
+					<!--<div class="column">
+						<input id="imageId" type="image" src="./assets/images/woman_2.jpg" width="216" height="286" v-on:click="mark(this)"/>
+					</div>-->
+					<!--<button v-for="option in options" v-on:click="changePage(option)">{{ option }}</button>-->
 				</div>
-				<!--{{ log(index) }}-->
-				<div class="column">
-					<input id="realId" type="image" src="./assets/images/media/easy/1/real.png"/>
-				</div>
-				<!--<div class="column">
-					<input id="imageId" type="image" src="./assets/images/woman_2.jpg" width="216" height="286" v-on:click="mark(this)"/>
-				</div>-->
-				<!--<button v-for="option in options" v-on:click="changePage(option)">{{ option }}</button>-->
-			</div>
 
-			<div class="btn-section">
-				<button v-on:click="next()"> Next </button>
+				<div class="prog-box">
+					<div> {{ progressed }}% </div>
+					<div class="progress-bar">
+						<div class="percentatge" :style="{'width' : progress + '%'}"></div>
+					</div>
+				</div>
+				<br>
+				<div class="btn-section">
+					<button v-on:click="next()" > Next </button>
+				</div>
 			</div>
-			
-			
+			<div v-show="this.finish_level">
+				<br>
+				<h2> Congrats! You have finished the level </h2>
+				<div v-show="this.badge_earned">
+					<h2> You earned a new badge! </h2>
+					<div class="img-section">
+						<img src="./assets/images/badges/apprentice.png" >
+					</div>
+				</div>
+				<div class="btn-section">
+					<button v-on:click="go_to_levels()" > Levels </button>
+					<button v-on:click="go_to_menu()" > Menu </button>
+				</div>
+			</div>
 			<!--{{ log(score) }}-->
 			
 		</div>
+
 		
 		<!-- Import App -->
 		<script src="./components/MediaPhotos.js"></script>
 		<!-- Mount App -->
 		<script> const mountedApp = easy.mount('#media') </script>
+		
 	</body>
 </html>
