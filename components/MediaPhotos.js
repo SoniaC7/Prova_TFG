@@ -8,7 +8,9 @@ const easy = Vue.createApp({
            score: 0,
            progress: 0,
            finish_level: false,
-           badge_earned: false
+           badge_earned: false,
+           msg_win: false,
+           msg_lose: false
         }
     },
     computed:{
@@ -23,6 +25,7 @@ const easy = Vue.createApp({
         increment_score_win(index){
             if( this.i_clicked == index){
                 this.score = this.score + 2;
+                this.msg_win = true;
                 this.increment_progress();
                 this.i_clicked += 1;
             }
@@ -30,6 +33,7 @@ const easy = Vue.createApp({
         increment_score_lose(index){
             if( this.i_clicked == index){
                 this.score = this.score + 1;
+                this.msg_lose = true;
                 this.increment_progress();
                 this.i_clicked += 1;
             }
@@ -53,6 +57,9 @@ const easy = Vue.createApp({
             this.index = this.index + 1;
             this.log(this.index);
             this.log(this.score);
+            
+            this.msg_win = false;
+            this.msg_lose = false;
 
             if(this.index <= this.total_images){
                 m_name = this.getImageMedia(this.index);
@@ -76,7 +83,7 @@ const easy = Vue.createApp({
             window.location.href = "./instagram.html";
         },
         go_to_menu(){
-            window.location.href = "./menu.html";
+            window.location.href = "./game.html";
         }
     }
 })

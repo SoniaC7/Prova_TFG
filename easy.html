@@ -30,7 +30,10 @@
 					</div>-->
 					<!--<button v-for="option in options" v-on:click="changePage(option)">{{ option }}</button>-->
 				</div>
-
+				<div class="message">
+					<h3 v-show="this.msg_win">Great! Keep going</h3>
+					<h3 v-show="this.msg_lose">Look closely</h3>
+				</div>
 				<div class="prog-box">
 					<div> {{ progressed }}% </div>
 					<div class="progress-bar">

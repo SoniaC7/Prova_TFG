@@ -15,8 +15,9 @@
 			<h1> Badges </h1>
 			<div class="img-section">
 				<div id="id_badges" v-for="badge in badges" :key="badge.id">
-					<div class="column" >
+					<div class="column badges" >
 						{{ badge.text }} 
+						<br>
 						<img :src="badge.example" >
 					</div>
 				</div>
