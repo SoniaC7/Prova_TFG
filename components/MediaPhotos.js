@@ -10,7 +10,9 @@ const easy = Vue.createApp({
            finish_level: false,
            badge_earned: false,
            msg_win: false,
-           msg_lose: false
+           msg_lose: false,
+           media_right: false,
+           first_img: true
         }
     },
     computed:{
@@ -54,12 +56,18 @@ const easy = Vue.createApp({
             return this.fol_name;
         },
         next(){
+            this.first_img = false;
             this.index = this.index + 1;
+            
+
             this.log(this.index);
             this.log(this.score);
             
             this.msg_win = false;
             this.msg_lose = false;
+            
+            this.media_right= Math.random() < 0.5;
+            this.log(this.media_right);
 
             if(this.index <= this.total_images){
                 m_name = this.getImageMedia(this.index);
@@ -78,6 +86,8 @@ const easy = Vue.createApp({
                     /*this.log(game.data.badges);*/
                 }
             }
+
+            
         },
         go_to_levels(){
             window.location.href = "./instagram.html";

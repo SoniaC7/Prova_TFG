@@ -16,8 +16,8 @@
 			<h1> Easy </h1>
 			<div v-show="this.finish_level === false">
 				<h2> Select the ones you think are posted on social media</h2>
-				<div class="img-section">
-					<div class="column">
+				<div v-if="this.first_img" class="img-section">
+					<div class="column" >
 						<input id="mediaId" type="image" src="./assets/images/media/easy/1/media.png"   v-on:click="increment_score_win(this.index)"/>
 					</div>
 					<!--{{ log(index) }}-->
@@ -30,6 +30,30 @@
 					</div>-->
 					<!--<button v-for="option in options" v-on:click="changePage(option)">{{ option }}</button>-->
 				</div>
+				<div v-if="this.media_right && this.first_img == false" class="img-section">
+					<div class="column" >
+						<input id="mediaId" type="image" :src="this.getImageMedia(this.index)"   v-on:click="increment_score_win(this.index)"/>
+					</div>
+					<!--{{ log(index) }}-->
+					<div class="column">
+						<input id="realId" type="image" :src="this.getImageReal(this.index)"  v-on:click="increment_score_lose(this.index)"/>
+					</div>
+					
+					<!--<div class="column">
+						<input id="imageId" type="image" src="./assets/images/woman_2.jpg" width="216" height="286" v-on:click="mark(this)"/>
+					</div>-->
+					<!--<button v-for="option in options" v-on:click="changePage(option)">{{ option }}</button>-->
+				</div>
+				<div v-else-if="this.first_img == false" class="img-section">
+					<div class="column">
+						<input id="realId" type="image" :src="this.getImageReal(this.index)"  v-on:click="increment_score_lose(this.index)"/>
+					</div>
+
+					<div class="column" >
+						<input id="mediaId" type="image" :src="this.getImageMedia(this.index)"   v-on:click="increment_score_win(this.index)"/>
+					</div>
+				</div>
+
 				<div class="message">
 					<h3 v-show="this.msg_win">Great! Keep going</h3>
 					<h3 v-show="this.msg_lose">Look closely</h3>
